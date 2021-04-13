@@ -6,27 +6,13 @@
 
 <script>
 import Sighting from './Sighting';
-import SightingService from '@/services/SightingService.js';
-import { eventBus } from '@/main.js';
 
 export default {
   name: 'sightings-grid',
-  data() {
-    return {
-      // sightings: [],
-    };
-  },
   components: {
     sighting: Sighting,
   },
   props: ['sightings'],
-  mounted() {
-    // SightingService.getSightings().then((sightings) => (this.sightings = sightings));
-    eventBus.$on('sighting-deleted', (id) => {
-      let index = this.sightings.findIndex((sighting) => sighting._id === id);
-      this.sightings.splice(index, 1);
-    });
-  },
 };
 </script>
 
